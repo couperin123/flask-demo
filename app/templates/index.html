@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Stock Price Check</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.ticker.label }}: {{ form.ticker(size=32) }}<br>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <!-- Do something with the message -->
+                        <span style="color: red;">{{ message }}</span>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% for error in form.ticker.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
