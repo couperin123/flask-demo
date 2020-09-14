@@ -1,7 +1,8 @@
 pandas
-bokeh
+bokeh==2.2.1
 dill
 flask
+flask-wtf
 jinja2
 pip
 simplejson
