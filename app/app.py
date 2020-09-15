@@ -56,7 +56,7 @@ def index():
             p.ygrid.grid_line_alpha=0.5
             p.xaxis.axis_label = 'Date'
             p.yaxis.axis_label = 'Closing Price'
-            p.line(range(len(month.index)), month['Closing Price'], line_width=4)
+            p.line(range(len(month.index)), month['Closing Price'][::-1], line_width=4)
             script, div = components(p)
 
             return render_template('dashboard.html', plots=[(script, div)])
